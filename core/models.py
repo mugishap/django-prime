@@ -1,12 +1,18 @@
-from distutils.command.upload import upload
 from django.db import models
-from traitlets import default
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your models here.
 
+
 class Profile(models.Model):
-    user = 'pass'
-    user_id = 'pass'
-    bio = 'pass'
-    profileimg = models.ImageField(upload_to = 'profile_images',default='profile_picture.png')
-    location = 'pass'
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.IntegerField()
+    bio = models.TextField(blank=True)
+    profileimg = models.ImageField(
+        upload_to='profile_images', default='profile_picture.png')
+    location = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.user.username

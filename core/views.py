@@ -5,3 +5,15 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,'index.html')
+
+# def profile(request):
+#     return render(request,'profile.html')
+
+# def settings(request):
+#     return render(request,'setting.html')
+
+# def signin(request):
+#     return render(request,'signin.html')
+
+# def signup(request):
+#     return render(request,'signup.html')
