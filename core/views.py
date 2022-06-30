@@ -6,7 +6,10 @@ from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
 
-# def profile(request):
+def signup(request):
+    return render(request,'signup.html')
+
+    # def profile(request):
 #     return render(request,'profile.html')
 
 # def settings(request):
@@ -15,5 +18,3 @@ def index(request):
 # def signin(request):
 #     return render(request,'signin.html')
 
-# def signup(request):
-#     return render(request,'signup.html')
