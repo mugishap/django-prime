@@ -1,3 +1,4 @@
+from urllib.robotparser import RequestRate
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
@@ -46,11 +47,17 @@ def signup(request):
         return render(request, 'signup.html')
 
 
+def signin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+    else:
+        return render(request,'signin.html')
+
     # def profile(request):
 #     return render(request,'profile.html')
 
 # def settings(request):
 #     return render(request,'setting.html')
 
-# def signin(request):
-#     return render(request,'signin.html')
