@@ -15,7 +15,7 @@ class Profile(models.Model):
     bio = models.TextField(blank=True)
 
     profileimg = models.ImageField(
-        upload_to='profile_images', default='profile_picture.png')
+        upload_to='profile_images', default='default_profile_picture.png')
 
     location = models.CharField(max_length=100, blank=True)
 
