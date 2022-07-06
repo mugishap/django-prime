@@ -111,5 +111,6 @@ def settings(request):
 
     return render(request, 'setting.html', {'user_profile': user_profile})
 
-    # def profile(request):
-#     return render(request,'profile.html
+@login_required
+def upload(request):
+    return HttpResponse('<h1>Upload View</h1>')
