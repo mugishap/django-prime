@@ -21,9 +21,6 @@
 
 
 
-
-
-
     <div class="container m-auto">
 
         <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3">
@@ -48,56 +45,55 @@
             <div class="bg-white rounded-md lg:shadow-lg shadow col-span-2">
 
                 <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
-                    <form action="" method="POST"></form>
-                    {% csrf_token %}
-                    <!-- <div>
-                        <label for=""> First name</label>
-                        <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
-                    </div>
-                    <div>
-                        <label for=""> Last name</label>
-                        <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
-                    </div>
-                    <div class="col-span-2">
-                        <label for=""> Email</label>
-                        <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
-                    </div> -->
-                    <div class="col-span-2">
-                        <label for=""> Profile</label>
-                        <img src="{{user_profile.profileimg.url}}" alt="">
-                        <input type="file" value="" name="image" value="" class="shadow-none bg-gray-100">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="about">Biography</label>
-                        <textarea id="about" name="bio" rows="3" class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
-                    </div>
-                    <div class="col-span-2">
-                        <label for=""> Location</label>
-                        <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100">
-                    </div>
-                    <!-- <div>
-                        <label for=""> Working at</label>
-                        <input type="text" placeholder="" class="shadow-none bg-gray-100">
-                    </div>
-                    <div>
-                        <label for=""> Relationship </label>
-                        <select id="relationship" name="relationship" class="shadow-none bg-gray-100">
-                            <option value="0">None</option>
-                            <option value="1">Single</option>
-                            <option value="2">In a relationship</option>
-                            <option value="3">Married</option>
-                            <option value="4">Engaged</option>
-                        </select>
-                    </div> -->
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- <div>
+                                <label for=""> First name</label>
+                                <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
+                                </div>
+                                <div>
+                                <label for=""> Last name</label>
+                                <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
+                            </div>
+                            <div class="col-span-2">
+                                <label for=""> Email</label>
+                                <input type="text" placeholder="Your name.." class="shadow-none bg-gray-100">
+                            </div> -->
+                        <div class="col-span-2">
+                            <label for=""> Profile</label>
+                            <img class="profile-img-preview" width="250" height="250" style="margin:20px auto !important    ;border-radius:10px;" src="{{user_profile.profileimg.url}}" alt="">
+                            <input onchange="createPreview()" type="file" value="" name="image" accept="image/*" value="" class="shadow-none bg-gray-100">
+                        </div>
+                        <div class="col-span-2">
+                            <label for="about">Biography</label>
+                            <textarea id="about" name="bio" rows="3" class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
+                        </div>
+                        <div class="col-span-2">
+                            <label for=""> Location</label>
+                            <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100">
+                        </div>
+                        <!-- <div>
+                                    <label for=""> Working at</label>
+                                    <input type="text" placeholder="" class="shadow-none bg-gray-100">
+                                </div>
+                                <div>
+                                    <label for=""> Relationship </label>
+                                    <select id="relationship" name="relationship" class="shadow-none bg-gray-100">
+                                        <option value="0">None</option>
+                                        <option value="1">Single</option>
+                                        <option value="2">In a relationship</option>
+                                        <option value="3">Married</option>
+                                        <option value="4">Engaged</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                        <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
+                            <a href="/"><button class="p-2 px-4 rounded bg-gray-50 text-red-500"> Cancel </button></a>
+                            <button type="submit" class="button bg-blue-700"> Save </button>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
-                    <a href="/"><button class="p-2 px-4 rounded bg-gray-50 text-red-500"> Cancel </button></a>
-                    <button type="submit" class="button bg-blue-700"> Save </button>
-                </div>
-                </form>
-            </div>
-            <!--
+                <!--
             <div>
                 <h3 class="text-xl mb-2"> Privacy</h3>
                 <p> </p>
@@ -167,21 +163,32 @@
 
         </div>-->
 
-        </div>
+            </div>
 
 
 
 
-        <!-- Scripts
+            <!-- Scripts
     ================================================== -->
-        <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
-        <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'assets/js/uikit.js' %}"></script>
-        <script src="{% static 'assets/js/simplebar.js' %}"></script>
-        <script src="{% static 'assets/js/custom.js' %}"></script>
-
-
-        <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
+            <script>
+                const createPreview = () => {
+                    const reader = new FileReader()
+                    const preview = document.querySelector(".profile-img-preview");
+                    const file = document.querySelector("input[type=file]").files[0];
+                    reader.addEventListener('load', () => {
+                        preview.src = reader.result
+                    })
+                    if (file) {
+                        reader.readAsDataURL(file);
+                    }
+                }
+            </script>
+            <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
+            <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+            <script src="{% static 'assets/js/uikit.js' %}"></script>
+            <script src="{% static 'assets/js/simplebar.js' %}"></script>
+            <script src="{% static 'assets/js/custom.js' %}"></script>
+            <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
 </body>
 
 </html>
