@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from matplotlib import image
 from matplotlib.style import context
-from requests import post
-from .models import Like_post, Profile, Post
+from requests import delete, post
+from .models import Like_post, Profile, Post, FollowersCount
 
 # Create your views here.
 
@@ -153,23 +153,55 @@ def upload(request):
         return redirect('/')
     return HttpResponse('<h1>Upload View</h1>')
 
+
 @login_required(login_url='signin')
-def profile(request ,pk):
+def profile(request, pk):
     user_object = User.objects.get(username=pk)
-    user_profile = Profile.objects.get(user = user_object)
+    user_profile = Profile.objects.get(user=user_object)
     user_posts = Post.objects.filter(user=pk)
     user_posts_length = len(user_posts)
 
+    follower = request.user.username
+    user = pk
+
+    if FollowersCount.objects.filter(follower=follower, user=user).first():
+        buttontext = "Unfollow"
+    else:
+        buttontext = "Follow"
+
+    user_followers = len(FollowersCount.objects.filter(user=pk))
+    user_following = len(FollowersCount.objects.filter(follower=pk))
+
     context = {
-        'user_object':user_object,
-        'user_profile':user_profile,
-        'user_posts':user_posts,
-        'user_posts_length':user_posts_length,
+        'user_object': user_object,
+        'user_profile': user_profile,
+        'user_posts': user_posts,
+        'user_posts_length': user_posts_length,
+        'button_text': buttontext,
+        'user_followers': user_followers,
+        'user_following': user_following
     }
 
-    return render(request,'profile.html',context)
+    return render(request, 'profile.html', context)
 
 
 @login_required(login_url='signin')
 def follow(request):
-    pass
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+
+        if FollowersCount.objects.filter(follower=follower, user=user).first():
+            delete_follower = FollowersCount.objects.get(
+                follower=follower, user=user)
+            delete_follower.delete()
+            return redirect('/profile/'+user)
+
+        else:
+            new_follower = FollowersCount.objects.create(
+                follower=follower, user=user)
+            new_follower.save()
+            return redirect('/profile/'+user)
+
+    else:
+        return redirect('/')
