@@ -78,7 +78,7 @@
                             <form action="upload" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div>
-                                    <input type="file" name="image_upload">
+                                    <input type="file" name="image_upload" accept="image/*">
                                     <!-- <a href="#" class="button soft-warning small"> Choose file</a> -->
                                     <textarea class="p-4 mt-2 shadow-2xl shadow-black" name="caption" placeholder="Enter your caption here"></textarea>
                                     <br>
