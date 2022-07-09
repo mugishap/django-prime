@@ -15,45 +15,47 @@
     <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
     <header>
         <div class="header_inner">
-            <div class="left-side">
-                <!-- Logo -->
-                <div id="logo" class=" uk-hidden@s">
-                    <a href="home.html">
-                        <b>
-                            <h1 style="text-transform: uppercase;">Prime</h1>
-                        </b>
-                    </a>
-                </div>
+            <form action="/search">
+                <div class="left-side">
+                    <!-- Logo -->
+                    <div id="logo" class=" uk-hidden@s">
+                        <a href="home.html">
+                            <b>
+                                <h1 style="text-transform: uppercase;">Prime</h1>
+                            </b>
+                        </a>
+                    </div>
 
-                <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
-                            <i class="uil-bars"></i>
-                        </div>-->
-
-                <div class="header_search">
-                    <input type="text" placeholder="Search for username..">
-                    <div class="icon-search">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
+                    <div class="header_search flex items-center justify-center">
+                        <input type="text" class="w-24 bg-blue-600" name="username" placeholder="Search for username..">
+                        <button type="submit" class="bg-blue-600 rounded p-2 text-white"><i class="fa fa-search fa-1x"></i></button>
+                        <div class="icon-search">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-
-            </div>
+            </form>
             <div class="right-side lg:pr-4">
                 <!-- upload -->
-                <a href="#" class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                <a href="#"
+                    class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                     <ion-icon name="add-circle" class="-mb-1
                              mr-1 opacity-90 text-xl uilus-circle"></ion-icon> Upload Pics
                 </a>
                 <!-- upload dropdown box -->
-                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small" class="header_dropdown">
+                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
+                    class="header_dropdown">
 
                     <!-- notivication header -->
                     <div class="px-4 py-3 -mx-5 -mt-4 mb-5 border-b">
@@ -65,8 +67,10 @@
 
                         <div class="flex flex-col choose-upload text-center">
 
-                            <div class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
+                            <div
+                                class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-12">
                                     <path
                                         d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
                                     <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
@@ -80,7 +84,8 @@
                                 <div>
                                     <input type="file" name="image_upload" accept="image/*">
                                     <!-- <a href="#" class="button soft-warning small"> Choose file</a> -->
-                                    <textarea class="p-4 mt-2 shadow-2xl shadow-black" name="caption" placeholder="Enter your caption here"></textarea>
+                                    <textarea class="p-4 mt-2 shadow-2xl shadow-black" name="caption"
+                                        placeholder="Enter your caption here"></textarea>
                                     <br>
                                     <button style="border-radius: 5px;
                                     background: #e0e0e0;
@@ -92,13 +97,16 @@
                                 </div>
 
                             </form>
-                            <a href="#" class="uk-text-muted mt-3 uk-link" uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
+                            <a href="#" class="uk-text-muted mt-3 uk-link"
+                                uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
                                 Or Import Video </a>
                         </div>
 
                         <div class="uk-flex uk-flex-column choose-upload" hidden>
-                            <div class="mx-auto flex flex-col h-24 items-center justify-center relative w-full rounded-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
+                            <div
+                                class="mx-auto flex flex-col h-24 items-center justify-center relative w-full rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-12">
                                     <path fill-rule="evenodd"
                                         d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z"
                                         clip-rule="evenodd" />
@@ -150,34 +158,41 @@
                         <div class="flex flex-1 items-center space-x-4">
                             <a href="#">
                                 <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">
-                                    <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                    <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}"
+                                        class="bg-gray-200 border border-white rounded-full w-8 h-8">
                                 </div>
                             </a>
                             <a href="/profile/{{post.user}}" class="block capitalize font-semibold "> {{post.user}} </a>
                         </div>
                         <div>
-                            <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i>
+                            <a href="#"> <i
+                                    class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i>
                             </a>
-                            <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
+                            <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  "
+                                uk-drop="mode: hover;pos: top-right">
 
                                 <ul class="space-y-1">
                                     <li>
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                        <a href="#"
+                                            class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                             <i class="uil-share-alt mr-1"></i> Share
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                        <a href="#"
+                                            class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                             <i class="uil-edit-alt mr-1"></i> Edit Post
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                        <a href="#"
+                                            class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                             <i class="uil-comment-slash mr-1"></i> Disable comments
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                        <a href="#"
+                                            class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                             <i class="uil-favorite mr-1"></i> Add favorites
                                         </a>
                                     </li>
@@ -185,7 +200,8 @@
                                         <hr class="-mx-2 my-2 ">
                                     </li>
                                     <li>
-                                        <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
+                                        <a href="#"
+                                            class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
                                             <i class="uil-trash-alt mr-1"></i> Delete
                                         </a>
                                     </li>
@@ -208,7 +224,8 @@
                         <div class="flex space-x-4 lg:font-bold">
                             <a href="/like_post?post_id={{post.id}}" class="flex items-center space-x-2">
                                 <div class="p-2 rounded-full text-black flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        width="25" height="25" class="">
                                         <path
                                             d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
                                     </svg>
@@ -226,8 +243,11 @@
                                 </div>
 
                             </a> -->
-                            <a href="#" class="flex items-center space-x-2 flex-1 justify-end">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                            <a href="{{post.image.url}}" download
+                                class="flex items-center space-x-2 flex-1 justify-end">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    aria-hidden="true" role="img" width="25" height="25"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                                     <g fill="currentColor">
                                         <path
                                             d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z" />
@@ -272,7 +292,8 @@
                         <div class="flex items-center justify-between py-3">
                             <div class="flex flex-1 items-center space-x-4">
                                 <a href="profile.html">
-                                    <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 rounded-full w-10 h-10">
+                                    <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}"
+                                        class="bg-gray-200 rounded-full w-10 h-10">
                                 </a>
                                 <div class="flex flex-col">
                                     <span class="block capitalize font-semibold"> tomi_ml </span>
@@ -280,39 +301,45 @@
                                 </div>
                             </div>
 
-                            <a href="#" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
+                            <a href="#"
+                                class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
                                 Follow </a>
                         </div>
                         <div class="flex items-center justify-between py-3">
                             <div class="flex flex-1 items-center space-x-4">
                                 <a href="profile.html">
-                                    <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" class="bg-gray-200 rounded-full w-10 h-10">
+                                    <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}"
+                                        class="bg-gray-200 rounded-full w-10 h-10">
                                 </a>
                                 <div class="flex flex-col">
                                     <span class="block capitalize font-semibold"> taiye </span>
                                     <span class="block capitalize text-sm"> New user </span>
                                 </div>
                             </div>
-                            <a href="#" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
+                            <a href="#"
+                                class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
                                 Follow </a>
                         </div>
                         <div class="flex items-center justify-between py-3">
                             <div class="flex flex-1 items-center space-x-4">
                                 <a href="profile.html">
-                                    <img src="{% static 'assets/images/avatars/avatar-5.jpg' %}" class="bg-gray-200 rounded-full w-10 h-10">
+                                    <img src="{% static 'assets/images/avatars/avatar-5.jpg' %}"
+                                        class="bg-gray-200 rounded-full w-10 h-10">
                                 </a>
                                 <div class="flex flex-col">
                                     <span class="block capitalize font-semibold"> kayode </span>
                                     <span class="block capitalize text-sm"> 20.7k followers </span>
                                 </div>
                             </div>
-                            <a href="#" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
+                            <a href="#"
+                                class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
                                 Follow </a>
                         </div>
                         <div class="flex items-center justify-between py-3">
                             <div class="flex flex-1 items-center space-x-4">
                                 <a href="profile.html">
-                                    <img src="{% static 'assets/images/avatars/avatar-7.jpg' %}" class="bg-gray-200 rounded-full w-10 h-10">
+                                    <img src="{% static 'assets/images/avatars/avatar-7.jpg' %}"
+                                        class="bg-gray-200 rounded-full w-10 h-10">
                                 </a>
                                 <div class="flex flex-col">
                                     <span class="block capitalize font-semibold"> faith_do </span>
@@ -320,7 +347,8 @@
                                 </div>
                             </div>
 
-                            <a href="#" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
+                            <a href="#"
+                                class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 ">
                                 Follow </a>
                         </div>
 
