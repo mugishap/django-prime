@@ -10,7 +10,8 @@ path('like_post',views.like_post,name='like_post'),
 path('signin',views.signin,name='signin'),
 path('logout',views.logout,name='logout'),
 path('settings',views.settings,name='settings'),
-path('upload',views.upload,name='upload')
+path('upload',views.upload,name='upload'),
+path('search',views.search,name='search')
 ]
 # path('/profile',views.profile,name='profile'),
 

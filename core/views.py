@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from matplotlib import image
 from matplotlib.style import context
+from numpy import logical_not
 from requests import delete, post
 from .models import Like_post, Profile, Post, FollowersCount
 from itertools import chain
@@ -35,6 +36,9 @@ def index(request):
     posts = Post.objects.all()
     return render(request, 'index.html', {'user_profile': user_profile, 'posts': feed_list})
 
+@login_required(login_url='signin')
+def search(request):
+    return render(request,'search.html')
 
 @login_required(login_url='signin')
 def like_post(request):

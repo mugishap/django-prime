@@ -22,7 +22,8 @@
 
     <header>
         <div class="header_inner">
-            <form action="/search">
+            <form action="/search" method="POST">
+                {% csrf_token %}
                 <div class="left-side">
                     <!-- Logo -->
                     <div id="logo" class=" uk-hidden@s">
