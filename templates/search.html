@@ -188,7 +188,7 @@
                     <!-- profile -->
 
                     <a href="#">
-                        <img src="{{ user_profile.profileimg.url }}" class="header-avatar" alt="">
+                        <img src="{{ user_object.profileimg.url }}" class="header-avatar" alt="">
                     </a>
                     <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                         <ul>
@@ -346,33 +346,13 @@
                                     <p class="info">{{users.location}}</p>
                                     <p class="description">{{users.bio}}</p>
                                 </div>
-                                <!-- <div class="col-sm-3 text-align-center">
-                                        <p class="value3 mt-sm">$9, 700</p>
-                                        <p class="fs-mini text-muted">PER WEEK</p><a class="btn btn-primary btn-info btn-sm" href="#">Learn More</a>
-                                    </div> -->
+
                             </div>
                         </div>
                     </section>
                     {% endfor %}
 
-                    <!-- <div class="text-align-center">
-                            <ul class="pagination pagination-sm">
-                                <li class="disabled"><a href="#">Prev</a>
-                                </li>
-                                <li class="active"><a href="#">1</a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li><a href="#">Next</a>
-                                </li>
-                            </ul>
-                        </div> -->
+                   
                 </div>
             </div>
         </div>
