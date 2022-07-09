@@ -47,6 +47,8 @@
                     </b></span>
                     <input type="hidden" name="follower" value="{{user.username}}">
                     <input type="hidden" name="user" value="{{user_object.username}}">
+                    <input type="hidden" name="referrer" class="w-0" value="/profile/{{user_object.username}}">
+
                     {% if user.username == user_object.username %}
                     <a href="/settings" title="" data-ripple=""><button type="button"
                             style="background-color: #ffc0cb; border: #ffc0cb;">Update Profile</button></a>
